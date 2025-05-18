@@ -2,9 +2,9 @@
 
 # This script creates a new user on the local system.
 # You will be prompted to enter the username (login), the person name, and a password.
-# The username, password, and host for the account will be displayed.
 
-# Make sure the script is being execurted with superuser privileges.
+
+# Make sure the script is being execurted with root privilage.
 
 if [[ ${UID} -ne 0 ]]
 then
@@ -12,19 +12,19 @@ then
 	exit 1
 fi
 
-# Get the username (login)
+# Get the username.
 
 read -p 'Enter the username to create: ' USER_NAME
 
-# Get the real name (contents for the description field).
+# Get the real name.
 
 read -p 'Enter the name of the person or application that will be using this account: ' COMMENT
 
-# Ask for the password of the user (password)
+# Asking for the password of the user.
 
 read -p 'Enter a password for the user: ' PASSWORD
 
-# Create the account 
+# Creating the account 
 
 useradd -c "${COMMENT}" -m ${USER_NAME}
 
